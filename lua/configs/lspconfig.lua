@@ -33,3 +33,15 @@ vim.lsp.config("gopls", { -- nvim 0.11
         },
     },
 })
+
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "go",
+    callback = function()
+        local root = require("lspconfig.util").root_pattern("go.work", "go.mod", ".git")(vim.fn.expand("%:p"))
+        if root then
+            vim.cmd("cd " .. root)
+        end
+    end,
+})
+
