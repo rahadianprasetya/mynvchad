@@ -34,7 +34,6 @@ vim.lsp.config("gopls", { -- nvim 0.11
     },
 })
 
-
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "go",
     callback = function()
@@ -44,4 +43,5 @@ vim.api.nvim_create_autocmd("FileType", {
         end
     end,
 })
+
 
